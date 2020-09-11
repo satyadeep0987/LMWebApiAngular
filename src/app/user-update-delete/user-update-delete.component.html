@@ -1,0 +1,64 @@
+
+<div class="container">
+    <h2>Update And Delete</h2>
+    <div class="row">
+        <div class='col-9'>
+            <form >
+              <h4>Search</h4>
+                <table class="table">
+                
+                    <tbody>
+                    <tr >
+                        <th scope="row">Enter User ID :</th>
+                        <td><input type="number" name="id" #id/></td>
+                    </tr>   
+                    <tr>
+                      <th></th>
+                        <td><input type="button" class="btn btn-dark" (click)="selectUserBYId(id.value)" value="Search"/></td>
+                    </tr>
+
+                      
+                    </tbody>
+                  </table>
+            </form>
+
+            <form >
+              <table class="table">
+              
+                  <tbody>
+                  <tr >
+                      <th scope="row"> Name :</th>
+                      <td><input type="text" name='Name' [(ngModel)]="result.uname" #Name="ngModel" required/></td>
+                      <td><span *ngIf="Name.errors?.required">User Name cannot be empty</span></td>
+                    </tr>  
+                    <tr >
+                      <th scope="row"> Contact :</th>
+                      <td><input type="text" name="Mobile"  [(ngModel)]="result.ucontact" #Mobile="ngModel" pattern="^[0-9]{10}$" required/></td>
+                      <td><span *ngIf="Mobile.errors?.required">Mobile no cannot be empty</span>
+                          <span *ngIf="Mobile.errors?.pattern">Mobile should be of 10 digit</span></td>
+                  </tr> 
+                  <tr >
+                      <th scope="row"> Address :</th>
+                      <td><input type="textarea"   name="Address"  [(ngModel)]="result.uaddress" #Address="ngModel" required></td>
+                      <td><span *ngIf="Address.errors?.required">User Address cannot be empty</span></td>
+                  </tr>  
+                    <tr>
+                      <th></th>
+                      <td><button type="button" class="btn btn-dark" (click)="UpdateUser()">Update </button></td>
+                      <td><button type="button" class="btn btn-dark" (click)="RemoveUser()">Delete </button></td> 
+                    </tr>
+                  </tbody>
+                </table>
+          </form>
+        </div>
+        <div class="col-3">
+          <div class="row"><button type="button" class="btn btn-success" routerLink='../userinfo'>Show User</button></div>
+          <br/>
+          <div class="row"><button type="button" class="btn btn-warning" disabled>Update and delete user</button></div>
+          <br/>
+          <div class="row"><button type="button" class="btn btn-primary" routerLink="../InsertUser">Insert User</button></div>
+        
+        </div>
+    </div>
+</div>
+

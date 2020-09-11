@@ -9,13 +9,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserComponent } from './user/user.component';
 import { BookComponent } from './book/book.component';
 import { BookissueComponent } from './bookissue/bookissue.component';
+import { UserInsertComponent } from './user-insert/user-insert.component';
+import { UserUpdateDeleteComponent } from './user-update-delete/user-update-delete.component';
+import { IsueBookComponent } from './isue-book/isue-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     BookComponent,
-    BookissueComponent
+    BookissueComponent,
+    UserInsertComponent,
+    UserUpdateDeleteComponent,
+    IsueBookComponent
   ],
   imports: [
     BrowserModule,

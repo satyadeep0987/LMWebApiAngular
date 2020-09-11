@@ -1,0 +1,45 @@
+
+<div class="container">
+    <h2>Register User</h2>
+    <div class="row">
+        <div class='col-9'>
+            <form >
+                <table class="table">
+                
+                    <tbody>
+                    <tr >
+                        <th scope="row">Enter Name :</th>
+                        <td><input type="text" name='Name' [(ngModel)]="user.uname" #Name="ngModel" required/></td>
+                        <td><span *ngIf="Name.errors?.required">User Name cannot be empty</span></td>
+                      </tr>  
+                      <tr >
+                        <th scope="row">Enter Contact :</th>
+                        <td><input type="text" name="Mobile"  [(ngModel)]="user.ucontact" #Mobile="ngModel" pattern="^[0-9]{10}$" required/></td>
+                        <td><span *ngIf="Mobile.errors?.required">Mobile no cannot be empty</span>
+                            <span *ngIf="Mobile.errors?.pattern">Mobile should be of 10 digit</span></td>
+                    </tr> 
+                    <tr >
+                        <th scope="row">Enter Address :</th>
+                        <td><input type="textarea"   name="Address"  [(ngModel)]="user.uaddress" #Address="ngModel" required></td>
+                        <td><span *ngIf="Address.errors?.required">User Address cannot be empty</span></td>
+                    </tr>  
+                      <tr>
+                        <th></th>
+                        
+                        <td><button type="button" class="btn btn-dark" (click)="InsertUser()">Insert </button></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </form>
+        </div>
+        <div class="col-3">
+          <div class="row"><button type="button" class="btn btn-success" routerLink='../userinfo'>Show User</button></div>
+          <br/>
+          <div class="row"><button type="button" class="btn btn-warning" routerLink="../UpdateDeleteUser">Update and delete user</button></div>
+          <br/>
+          <div class="row"><button type="button" class="btn btn-primary" disabled>Insert User</button></div>
+        
+        </div>
+    </div>
+</div>

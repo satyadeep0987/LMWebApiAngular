@@ -13,7 +13,7 @@ export class ServiceBookService {
 
   book:BookModel;
   http:HttpClient;
-  private url = 'http://localhost:65457/api/BookModel';
+  private url = 'http://localhost:65457/api/book';
 
   httpOptions ={headers : new HttpHeaders({
     'Content-Type' : 'application/json'

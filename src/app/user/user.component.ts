@@ -13,15 +13,18 @@ import { ServiceUserService } from '../service-user.service';
 export class UserComponent implements OnInit {
 
   srv:ServiceUserService;
-  result:UserModel;
-  constructor() {
-   
+   result:UserModel[];
+  constructor(srv:ServiceUserService) {
+    this.srv = srv;
    }
 
   ngOnInit(): void {
- 
+    this.ShowallUser();
   }
 
-  
-
+  ShowallUser():void{
+    this.srv.GetUserModel().subscribe((data:UserModel[])=>{
+      this.result = data;
+    })
+  }
 }

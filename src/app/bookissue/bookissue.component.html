@@ -1,1 +1,45 @@
-<p>bookissue works!</p>
+
+<div class="container">
+    <h3> Book Issued</h3>
+    <div class="row">
+        <div class='col-9'>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Issue Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Issue Date</th>
+                    <th scope="col">No Of Days</th>
+                    <th scope="col">Expected Return Date</th>
+                    <th scope="col">Actual return Date</th>
+                    <th scope="col">Fine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let u of result">
+                    <th scope="row">{{u.iis}}</th>
+                    <td>{{u.username}}</td>
+                    <td>{{u.bookname}}</td>
+                    <td>{{u.issuedate}}</td>
+                    <td>{{u.noofdays}}</td>
+                    <td>{{u.expreturndate}}</td>
+                    <td>{{u.actualreturndate}}</td>
+                    <td>{{u.fine}}</td>
+                  </tr>   
+                  
+                </tbody>
+              </table>
+            
+        </div>
+        <div class="col-3">
+            <div class="row"><button type="button" class="btn btn-success">Show Issued Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-warning">Return Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-primary">Issue Book</button></div>
+          
+        </div>
+    </div>
+</div>
+

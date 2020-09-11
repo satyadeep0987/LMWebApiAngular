@@ -21,23 +21,23 @@ export class ServiceUserService {
     this.http = http;
    }
 
-  GetUser():Observable<UserModel[]>{
+  GetUserModel():Observable<UserModel[]>{
     return this.http.get<UserModel[]>(this.url);
   }
 
-  GetUserID(id:number):Observable<UserModel>{
+  GetUserModelID(id:number):Observable<UserModel>{
     return this.http.get<UserModel>(this.url+'/'+id);
   }
 
-  InsertUser(u:UserModel):Observable<string>{
+  InsertUserModel(u:UserModel):Observable<string>{
     return this.http.post<string>(this.url,u,this.httpOptions);
   }
 
-  UpdateUsser(id:number,u:UserModel):Observable<string>{
+  UpdateUsserModel(id:number,u:UserModel):Observable<string>{
     return this.http.put<string>(this.url+'/'+id,u,this.httpOptions);
   }
 
-  DeleteUser(id:number):Observable<any>{
+  DeleteUserModel(id:number):Observable<any>{
     return this.http.delete<any>(this.url+'/'+id);
   }
 

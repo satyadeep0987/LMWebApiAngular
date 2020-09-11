@@ -1,1 +1,36 @@
-<p>book works!</p>
+<div class="container">
+    <h2> Books </h2>
+    <div class="row">
+        <div class='col-9'>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Book Id</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Book Gener</th>
+                    <th scope="col">Book Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let u of result">
+                    <th scope="row">{{u.bid}}</th>
+                    <td>{{u.bname}}</td>
+                    <td>{{u.bgener}}</td>
+                    <td>{{u.bprice}}</td>
+                  </tr>   
+                  
+                </tbody>
+              </table>
+            
+        </div>
+        <div class="col-3">
+            <div class="row"><button type="button" class="btn btn-success">Show Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-warning">Update and delete Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-primary">Insert Book</button></div>
+          
+        </div>
+    </div>
+</div>
+

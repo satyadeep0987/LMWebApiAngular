@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../user-model';
+import { ServiceUserService } from '../service-user.service';
+
+
+
 
 @Component({
   selector: 'app-user',
@@ -7,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  srv:ServiceUserService;
+  result:UserModel;
+  constructor() {
+   
+   }
 
   ngOnInit(): void {
+ 
   }
+
+  
 
 }

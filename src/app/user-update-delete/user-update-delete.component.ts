@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { ServiceUserService } from '../service-user.service';
 import { UserModel } from '../user-model';
 import { Router } from '@angular/router';
+import { IfStmt } from '@angular/compiler';
 
 
 @Component({
@@ -47,14 +48,12 @@ export class UserUpdateDeleteComponent implements OnInit {
 
   RemoveUser():void{
     this.srv.DeleteUserModel(this.id).subscribe((data:any)=>{
+      console.log(data);
       if(data == 200)
         {
           alert("Data deleted");
         }
-      else
-      {
-        alert("Id not correct");
-      }
+      
       this.ngZone.run(() => this.router.navigateByUrl('/userinfo'));
     });
   }

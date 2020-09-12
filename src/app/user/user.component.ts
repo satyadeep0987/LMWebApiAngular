@@ -14,6 +14,24 @@ export class UserComponent implements OnInit {
 
   srv:ServiceUserService;
    result:UserModel[];
+
+   navbarOpen = false;
+   public clicked = false;
+   _el: any;
+   toggleNavbar() {
+     this.navbarOpen = !this.navbarOpen;
+   }
+ 
+   ngAfterViewInit(): void {
+     throw new Error("Method not implemented.");
+   }
+ 
+   onClick(event): void {
+     event.preventDefault();
+     event.stopPropagation();
+     this.clicked = true;
+   }
+
   constructor(srv:ServiceUserService) {
     this.srv = srv;
    }

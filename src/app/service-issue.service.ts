@@ -38,7 +38,7 @@ export class ServiceIssueService {
     return this.http.post<string>(this.url,i,this.httpOptions);
   }
 
-  Returnbook(i:IssueModel,id:number):Observable<string>{
+  Returnbook(id:number,i:IssueModel):Observable<string>{
     return this.http.put<string>(this.url+'/'+id,i,this.httpOptions);
   }
 

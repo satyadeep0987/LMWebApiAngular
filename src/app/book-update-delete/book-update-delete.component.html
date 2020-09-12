@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"><h3>My Library</h3></a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link" routerLink='../issueinfo'>Issue Book<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='../bookinfo'>Book<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='../userinfo'>User<span class="sr-only">(current)</span></a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <h2> Insert Book </h2>
+    <div class="row">
+        <div class='col-9'>
+            <table class="table">
+                <tbody>
+                    <tr >
+                        <th scope="row">Enter Book Id :</th>
+                        <td><input type="number" #id /></td>
+                        
+                      </tr>  
+                      <tr>
+                        <th></th>
+                        <td><input type="button" class="btn btn-dark" (click)="selectBookBYId(id.value)" value="Search Book"/></td>
+                      </tr>
+                </tbody>
+            </table>
+            <form >
+                <table class="table">
+                
+                    <tbody>
+                    <tr >
+                        <th scope="row">Enter Book Name :</th>
+                        <td><input type="text" name='Name' [(ngModel)]="book.bname" #Name="ngModel" required/></td>
+                        <td><span *ngIf="Name.errors?.required">Book Name cannot be empty</span></td>
+                      </tr>  
+                      <tr >
+                        <th scope="row">Enter Book Gener :</th>
+                        <td><input type="text" name="Gener"  [(ngModel)]="book.bgener" #Gener="ngModel" pattern="^[0-9]{10}$" required/></td>
+                        <td><span *ngIf="Gener.errors?.required">Gener cannot be empty</span>
+                            </td>
+                    </tr> 
+                    <tr >
+                        <th scope="row">Enter Book Price :</th>
+                        <td><input type="number"   name="Price"  [(ngModel)]="book.bprice" #Price="ngModel" required></td>
+                        <td><span *ngIf="Price.errors?.required">Price cannot be empty</span></td>
+                    </tr>  
+                      <tr>
+                        <th></th>
+                        
+                        <td><button type="button" class="btn btn-dark" (click)="UpdateBook()">Update </button></td>
+                        <td><button type="button" class="btn btn-dark" (click)="DeleteBook()">Delete </button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </form>
+            
+        </div>
+        <div class="col-3">
+            <div class="row"><button type="button" class="btn btn-success" routerLink="../bookinfo">Show Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-warning" disabled>Update and delete Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-primary" routerLink="../InsertBook">Insert Book</button></div>
+          
+        </div>
+    </div>
+</div>
+

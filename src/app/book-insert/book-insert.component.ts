@@ -1,18 +1,19 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { UserModel } from '../user-model';
+import { ServiceBookService } from '../service-book.service';
+import { BookModel } from '../book-model';
 import {FormsModule , NgForm, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceUserService } from '../service-user.service';
 
 @Component({
-  selector: 'app-user-insert',
-  templateUrl: './user-insert.component.html',
-  styleUrls: ['./user-insert.component.css']
+  selector: 'app-book-insert',
+  templateUrl: './book-insert.component.html',
+  styleUrls: ['./book-insert.component.css']
 })
-export class UserInsertComponent implements OnInit {
+export class BookInsertComponent implements OnInit {
 
-  user = new UserModel();
-  srv : ServiceUserService;
+  srv:ServiceBookService;
+  book = new BookModel();
   ngZone:NgZone;
   router:Router;
   str:string;
@@ -34,21 +35,21 @@ export class UserInsertComponent implements OnInit {
 		this.clicked = true;
 	}
 
-  constructor(srv : ServiceUserService,ngZone:NgZone,router:Router) { 
+  constructor(srv : ServiceBookService,ngZone:NgZone,router:Router) { 
     this.srv = srv;
     this.ngZone = ngZone;
     this.router = router;
   }
 
-  ngOnInit(): void {
+ 
 
+  ngOnInit(): void {
   }
 
-  InsertUser():void{
-    this.srv.InsertUserModel(this.user).subscribe((data:string)=>{
-      this.str=data;
-      alert(this.str);
-      this.ngZone.run(() => this.router.navigateByUrl('/userinfo'));
+  InsertBook():void{
+    this.srv.InsertBookModel(this.book).subscribe((data:string)=>{
+      alert(data);
+      this.ngZone.run(() => this.router.navigateByUrl('/bookinfo'));
     });
   }
 

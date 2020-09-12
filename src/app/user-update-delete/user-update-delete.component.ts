@@ -19,6 +19,23 @@ export class UserUpdateDeleteComponent implements OnInit {
   router:Router;
   id:number;
 
+  navbarOpen = false;
+	public clicked = false;
+	_el: any;
+	toggleNavbar() {
+		this.navbarOpen = !this.navbarOpen;
+	}
+
+	ngAfterViewInit(): void {
+		throw new Error("Method not implemented.");
+	}
+
+	onClick(event): void {
+		event.preventDefault();
+		event.stopPropagation();
+		this.clicked = true;
+	}
+
 
   constructor(srv:ServiceUserService,ngZone:NgZone,router:Router) {
     this.srv = srv;

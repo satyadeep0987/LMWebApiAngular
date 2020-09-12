@@ -1,21 +1,24 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { IssueModel } from '../issue-model';
 import { ServiceIssueService } from '../service-issue.service';
-
 import {  Router } from '@angular/router';
+import { CustomIssue } from '../custom-issue';
 
 
 @Component({
-  selector: 'app-isue-book',
-  templateUrl: './isue-book.component.html',
-  styleUrls: ['./isue-book.component.css']
+  selector: 'app-return-book',
+  templateUrl: './return-book.component.html',
+  styleUrls: ['./return-book.component.css']
 })
-export class IsueBookComponent implements OnInit {
+export class ReturnBookComponent implements OnInit {
 
-  issue = new IssueModel;
+  issue= new IssueModel;
+  cissue:CustomIssue;
+
   srv:ServiceIssueService;
   ngZone:NgZone;
   router:Router;
+  id:number;
 
   navbarOpen = false;
 	public clicked = false;
@@ -44,11 +47,20 @@ export class IsueBookComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  issuebook():void{
-    this.srv.IssueBook(this.issue).subscribe((data:string)=>{
+  GetIssuedBookById(id:number):void{
+    this.id=id;
+    this.srv.GetIssuedBookByID(this.id).subscribe((data:CustomIssue)=>{
+      this.cissue = data;
+    });
+  }
+
+  Returnbook():void{
+    
+    this.issue.actualreturndate = this.cissue.actualreturndate;
+    this.srv.Returnbook(this.id,this.issue).subscribe((data:string)=>{
       alert(data);
       this.ngZone.run(() => this.router.navigateByUrl('/issueinfo'));
-    })
+    });
   }
 
 }

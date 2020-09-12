@@ -1,1 +1,69 @@
-<p>isue-book works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><h3>My Library</h3></a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink='../issueinfo'>Issue Book<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='../bookinfo'>Book<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='../userinfo'>User<span class="sr-only">(current)</span></a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+<div class="container">
+    <h3> Issue Book</h3>
+    <div class="row">
+        <div class='col-9'>
+            <form>
+            <table class="table">
+            <tbody>
+                <tr >
+                    <th scope="row">Enter UserId :</th>
+                    <td><input type="text" name='UserId' [(ngModel)]="issue.uid" #UserId="ngModel" required/></td>
+                    <td><span *ngIf="UserId.errors?.required">UserID cannot be empty</span></td>
+                  </tr>  
+                  <tr >
+                    <th scope="row">Enter BookId :</th>
+                    <td><input type="text" name="BookId"  [(ngModel)]="issue.bid" #BookId="ngModel" required/></td>
+                    <td><span *ngIf="BookId.errors?.required">BookID cannot be empty</span>
+                        </td>
+                </tr> 
+                <tr >
+                    <th scope="row">Enter Issue Date :</th>
+                    <td><input type="datetime-local"   name="issuedate"  [(ngModel)]="issue.issuedate" #issuedate="ngModel" required></td>
+                    <td><span *ngIf="issuedate.errors?.required">IssueDate cannot be empty</span></td>
+                </tr>  
+                <tr >
+                    <th scope="row">Enter No of days :</th>
+                    <td><input type="number"   name="day"  [(ngModel)]="issue.noofdays" #day="ngModel" required></td>
+                    <td><span *ngIf="day.errors?.required">Noo of days cannot be empty</span></td>
+                </tr> 
+                  <tr>
+                    <th></th>
+                    
+                    <td><button type="button" class="btn btn-dark" (click)="issuebook()">Insert </button></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+        </div>
+        <div class="col-3">
+            <div class="row"><button type="button" class="btn btn-success" routerLink='../issueinfo'>Show Issued Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-warning"  routerLink="../ReturnBook">Return Book</button></div>
+            <br/>
+            <div class="row"><button type="button" class="btn btn-primary" disabled >Issue Book</button></div>
+          
+        </div>
+    </div>
+</div>
+

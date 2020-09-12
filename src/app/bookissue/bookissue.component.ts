@@ -14,6 +14,23 @@ export class BookissueComponent implements OnInit {
   result:CustomIssue[];
   isu:IssueModel;
 
+  navbarOpen = false;
+	public clicked = false;
+	_el: any;
+	toggleNavbar() {
+		this.navbarOpen = !this.navbarOpen;
+	}
+
+	ngAfterViewInit(): void {
+		throw new Error("Method not implemented.");
+	}
+
+	onClick(event): void {
+		event.preventDefault();
+		event.stopPropagation();
+		this.clicked = true;
+	}
+
   constructor(srv:ServiceIssueService) {
     this.srv = srv;
    }

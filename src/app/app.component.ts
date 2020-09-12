@@ -7,30 +7,17 @@ import { Router } from '@angular/router';
 	styleUrls: ['./app.component.css'],
 	encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit,AfterViewInit{
+export class AppComponent {
 	title = 'LibraryManagmentAngular';
 
 	
-	navbarOpen = false;
-	public clicked = false;
-	_el: any;
-	toggleNavbar() {
-		this.navbarOpen = !this.navbarOpen;
-	}
-	constructor(
-		private router: Router,
-	) {}
+	
+	constructor() {}
 
-	ngAfterViewInit(): void {
-		throw new Error("Method not implemented.");
-	}
+	
 	ngOnInit() {}
 
-	onClick(event): void {
-		event.preventDefault();
-		event.stopPropagation();
-		this.clicked = true;
-	}
+	
 
 }
 

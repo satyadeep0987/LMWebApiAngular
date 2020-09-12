@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"><h3>My Library</h3></a>
+  </nav>
+<div class="container">
+    <h2>Login</h2>
+    <form >
+        <table class="table">
+            <tr>
+                <th scope="row">Enter User Name :</th>
+                <td><input type="text" name="uname" [(ngModel)]="auth.username" #uname="ngModel" required></td>
+                <td><span *ngIf="uname.errors?.required">Username cannot be empty</span></td>
+            </tr>
+            <tr>
+                <th scope="row">Enter Password :</th>
+                <td><input type="password" name="pass" [(ngModel)]="auth.password" #pass="ngModel" required></td>
+                <td><span *ngIf="pass.errors?.required">Password cannot be empty</span></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td></td>
+                <td><button type="submit" class="btn btn-dark" (click)="CheckAuth()">Login </button></td>
+            </tr>
+            
+        </table>
+  
+    </form>
+</div>
+  

@@ -9,6 +9,7 @@ import { IsueBookComponent } from './isue-book/isue-book.component';
 import { ReturnBookComponent } from './return-book/return-book.component';
 import { BookInsertComponent } from './book-insert/book-insert.component';
 import { BookUpdateDeleteComponent } from './book-update-delete/book-update-delete.component';
+import { AuthLibraryComponent } from './auth-library/auth-library.component';
 
 const routes: Routes = [
   { path:'userinfo',component:UserComponent},
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path:'ReturnBook',component:ReturnBookComponent},
   { path:'InsertBook',component:BookInsertComponent},
   { path:'UpdateDelete',component:BookUpdateDeleteComponent},
+  { path:'Auth',component:AuthLibraryComponent},
+  { path: '',   redirectTo: '/Auth', pathMatch: 'full' }
 ];
 
 @NgModule({

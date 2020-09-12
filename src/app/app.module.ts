@@ -15,6 +15,7 @@ import { IsueBookComponent } from './isue-book/isue-book.component';
 import { ReturnBookComponent } from './return-book/return-book.component';
 import { BookInsertComponent } from './book-insert/book-insert.component';
 import { BookUpdateDeleteComponent } from './book-update-delete/book-update-delete.component';
+import { AuthLibraryComponent } from './auth-library/auth-library.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BookUpdateDeleteComponent } from './book-update-delete/book-update-dele
     IsueBookComponent,
     ReturnBookComponent,
     BookInsertComponent,
-    BookUpdateDeleteComponent
+    BookUpdateDeleteComponent,
+    AuthLibraryComponent
   ],
   imports: [
     BrowserModule,

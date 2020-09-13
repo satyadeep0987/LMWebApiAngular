@@ -41,7 +41,7 @@
                   </table>
             </form>
 
-            <form >
+            <form #UserUpdate="ngForm" (ngSubmit)="UpdateUser(UserUpdate)">
               <table class="table">
               
                   <tbody>
@@ -63,7 +63,7 @@
                   </tr>  
                     <tr>
                       <th></th>
-                      <td><button type="button" class="btn btn-dark" (click)="UpdateUser()">Update </button></td>
+                      <td><button type="submit" class="btn btn-dark"  [disabled]="UserUpdate.invalid">Update </button></td>
                       <td><button type="button" class="btn btn-dark" (click)="RemoveUser()">Delete </button></td> 
                     </tr>
                   </tbody>

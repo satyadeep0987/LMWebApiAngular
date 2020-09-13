@@ -69,12 +69,17 @@ export class BookUpdateDeleteComponent implements OnInit {
       if(data==200)
       {
         alert("Book deleted");
+        this.ngZone.run(() => this.router.navigateByUrl('/bookinfo'));
       }
-      else
+      else if(data ==400)
       {
-        alert("Book can't be deleted");
+        alert("Book not Found");
       }
-      this.ngZone.run(() => this.router.navigateByUrl('/bookinfo'));
+      else if(data == 401)
+      {
+        alert("Can't be deleted bok Is In Use");
+      }
+      
     })
   }
 

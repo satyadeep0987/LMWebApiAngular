@@ -3,6 +3,7 @@ import { ServiceUserService } from '../service-user.service';
 import { UserModel } from '../user-model';
 import { Router } from '@angular/router';
 import { IfStmt } from '@angular/compiler';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -53,7 +54,7 @@ export class UserUpdateDeleteComponent implements OnInit {
     });
   }
 
-  UpdateUser():void{
+  UpdateUser(ng:NgForm):void{
     this.user.ucontact = this.result.ucontact;
     this.user.uaddress= this.result.uaddress;
     this.user.uname = this.result.uname;
@@ -68,10 +69,17 @@ export class UserUpdateDeleteComponent implements OnInit {
       console.log(data);
       if(data == 200)
         {
-          alert("Data deleted");
+          alert("User deleted");
+          this.ngZone.run(() => this.router.navigateByUrl('/userinfo'));
         }
-      
-      this.ngZone.run(() => this.router.navigateByUrl('/userinfo'));
+        else if(data == 400)
+        {
+          alert("User Id Not Found");
+        }
+        else if(data == 401)
+        {
+          alert("user has Issued A book Can't be deleted");
+        }
     });
   }
 
